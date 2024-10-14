@@ -1,70 +1,94 @@
-import { Image, StyleSheet, Platform } from 'react-native';
-
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-
-export default function HomeScreen() {
+import { View, Text, StyleSheet, Image } from "react-native";
+import React from "react";
+import { router } from "expo-router";
+import Screenwrapper from "../../components/Screenwrapper";
+import { hp, wp } from "../../helper/common";
+const index = () => {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
-  );
-}
+    <Screenwrapper bg={"#19173D"}>
+      <View style={{ margin: 10,marginHorizontal:wp(5) }}>
+        <View style={styles.header}>
+          <View style={{ flexDirection: "row" }}>
+            <Image source={require("../../assets/Images/Avatar.png")} />
+            <View style={styles.subHeader}>
+              <Text style={styles.headerText}>Welcome Back !</Text>
+              <Text style={styles.subheaderText}>Sandy Chungus</Text>
+            </View>
+          </View>
+          <View style={styles.rightHeader}>
+            <Image source={require("../../assets/Images/notification.png")} />
+            <Image source={require("../../assets/Images/More_Vertical.png")} />
+          </View>
+        </View>
+        <View style={{ alignItems: "center" }}>
+          <Image
+            style={{
+              justifyContent: "center",
+              alignItems: "center",
+              width: 220, // adjust width to match the image size
+              height: 220,
+            }}
+            source={require("../../assets/Images/Balance.png")}
+          />
+          <Text style={styles.balanceText}>$5,643.50</Text>
+          <Text style={styles.availContent}>Available Balance</Text>
+        </View>
+        <Text style={{color:'white',fontWeight:'bold',fontSize:20}}>My transaction</Text>
+      
+      </View>
 
+    </Screenwrapper>
+  );
+};
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginHorizontal: wp(2),
+    justifyContent: "space-between",
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  headerText: {
+    color: "white",
+    fontSize: 13,
+    fontWeight: "400",
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  rightHeader: {
+    flexDirection: "row",
+  },
+  subHeader: {
+    marginHorizontal: wp(2),
+    marginVertical: hp(1),
+  },
+  subheaderText: {
+    color: "white",
+    fontSize: 10,
+    fontWeight: "200",
+  },
+  imageContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    width: 200, // adjust width to match the image size
+    height: 200, // adjust height to match the image size
+  },
+  image: {
+    width: "100%", // Ensures the image fills the container
+    height: "100%",
+  },
+  balanceText: {
+    position: "absolute", // This positions the text on top of the image
+    color: "white", // Set the color to stand out from the image
+    fontSize: 24, // Adjust the size based on your preference
+    fontWeight: "bold",
+    marginVertical:wp(16)
+  },
+  availContent: {
+    color: "gray",
+    position: "absolute",
+    paddingVertical:wp(23),
+    fontSize: 16,
+    fontWeight:'300'
+    
   },
 });
+
+export default index;
