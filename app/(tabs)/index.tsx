@@ -11,7 +11,7 @@ const index = () => {
           <View style={{ flexDirection: "row" }}>
             <Image source={require("../../assets/Images/Avatar.png")} />
             <View style={styles.subHeader}>
-              <Text style={styles.headerText}>Welcome Back !</Text>
+              <Text style={styles.headerText}>Welcome Back ! hello Cheering</Text>
               <Text style={styles.subheaderText}>Sandy Chungus</Text>
             </View>
           </View>
