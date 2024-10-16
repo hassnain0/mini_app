@@ -2,11 +2,11 @@ import { View, Text, Image, StyleSheet } from "react-native";
 import React from "react";
 import Screenwrapper from "../../components/Screenwrapper";
 import Header from "../../components/Header";
-import { hp, wp } from "@/helper/common";
+import { wp } from "@/helper/common";
 const cards = () => {
   const ImagesArr=[
     {
-      image:require('../../assets/Images/')
+    
     },{
 
     },{
