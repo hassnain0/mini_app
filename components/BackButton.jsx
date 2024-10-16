@@ -1,6 +1,5 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import React from "react";
-import Icon from "../assets/Icons";
 import { theme } from "../constants/theme";
 
 const BackButton = ({ router }) => {
@@ -11,12 +10,12 @@ const BackButton = ({ router }) => {
       }}
       style={styles.button}
     >
-      <Icon
+      {/* <Icon
         name={"arrowLeft"}
         strokeWidth={2.5}
         size={26}
         color={theme.colors.text}
-      />
+      /> */}
     </Pressable>
   );
 };
