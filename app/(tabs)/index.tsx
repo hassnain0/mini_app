@@ -35,6 +35,26 @@ const index = () => {
       amount: "-$15.30",
       logo: require("../../assets/Images/starbucks.png"),
     },
+    {
+      id: "4",
+      name: "Starbucks",
+      date: "May 5, 2022",
+      amount: "-$15.30",
+      logo: require("../../assets/Images/starbucks.png"),
+    },
+    {
+      id: "4",
+      name: "Starbucks",
+      date: "May 5, 2022",
+      amount: "-$15.30",
+      logo: require("../../assets/Images/starbucks.png"),
+    },{
+      id: "4",
+      name: "Starbucks",
+      date: "May 5, 2022",
+      amount: "-$15.30",
+      logo: require("../../assets/Images/starbucks.png"),
+    },
   ];
   return (
     <Screenwrapper bg={"#19173D"}>
