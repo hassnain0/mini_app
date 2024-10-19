@@ -6,6 +6,7 @@ import { hp, wp } from "../../helper/common";
   // Import SVG elements
 import { FlatList } from "react-native-gesture-handler";
 import Svg, { Path } from "react-native-svg";
+import { theme } from "@/constants/theme";
 const index = () => {
 
   const transactions = [
