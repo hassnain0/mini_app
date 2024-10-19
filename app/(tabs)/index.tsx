@@ -1,41 +1,18 @@
-import { View, Text, StyleSheet, Image, FlatList } from "react-native";
-import React, { useState } from "react";
+import { View, Text, StyleSheet, Image } from "react-native";
+import React from "react";
 import { router } from "expo-router";
 import Screenwrapper from "../../components/Screenwrapper";
 import { hp, wp } from "../../helper/common";
-import Button from "../../components/Button";
-import { theme } from "@/constants/theme";
+  // Import SVG elements
+import { FlatList } from "react-native-gesture-handler";
+import Svg, { Path } from "react-native-svg";
 const index = () => {
-  const [loading, setLoading] = useState(false);
+
   const transactions = [
-    {
-      id: "1",
-      name: "Amazon",
-      date: "May 24, 2022",
-      amount: "-$103.56",
-      logo: require("../../assets/Images/amazon.png"),
-    },
-    {
-      id: "2",
-      name: "McDonalds",
-      date: "May 12, 2022",
-      amount: "-$34.78",
-      logo: require("../../assets/Images/mcdonalds.png"),
-    },
-    {
-      id: "3",
-      name: "Apple",
-      date: "May 8, 2022",
-      amount: "-$1,000.97",
-      logo: require("../../assets/Images/apple.png"),
-    },
-    {
-      id: "4",
-      name: "Starbucks",
-      date: "May 5, 2022",
-      amount: "-$15.30",
-      logo: require("../../assets/Images/starbucks.png"),
-    },
+    { id: '1', name: 'Amazon', date: 'May 24, 2022', amount: '-$103.56', logo: require('../../assets/Images/amazon.png') },
+    { id: '2', name: 'McDonalds', date: 'May 12, 2022', amount: '-$34.78', logo: require('../../assets/Images/mcdonalds.png') },
+    { id: '3', name: 'Apple', date: 'May 8, 2022', amount: '-$1,000.97', logo: require('../../assets/Images/apple.png') },
+    { id: '4', name: 'Starbucks', date: 'May 5, 2022', amount: '-$15.30', logo: require('../../assets/Images/starbucks.png') },
   ];
 
   //   const Item=(item,index)=>{
@@ -82,37 +59,46 @@ const index = () => {
           <Text style={styles.availContent}>Available Balance</Text>
         </View>
       </View>
-      <View style={{ marginHorizontal: wp(5) }}>
-        <View>
-          <Text style={styles.transText}>My transactions</Text>
-          <FlatList
-            style={{ marginVertical: wp(5) }}
-            data={transactions}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => (
-              <View style={styles.transactionItem}>
-                <Image source={item.logo} style={styles.transactionLogo} />
-                <View style={styles.transactionDetails}>
-                  <Text style={styles.transactionName}>{item.name}</Text>
-                  <Text style={styles.transactionDate}>{item.date}</Text>
-                </View>
-                <View style={styles.amountContainer}>
-                  <Text style={styles.transactionAmount}>{item.amount}</Text>
-                </View>
-              </View>
-            )}
+      <View style={styles.topCurve}>
+        <Svg
+          height="100%"
+          width="100%"
+          viewBox="0 0 1440 320"
+          style={styles.curveSvg}
+        >
+          <Path
+            fill="#1c1e3f" // Background color for the curve
+            d="M0,224L60,192C120,160,240,96,360,74.7C480,53,600,75,720,101.3C840,128,960,160,1080,181.3C1200,203,1320,213,1380,218.7L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
           />
-        </View>
+        </Svg>
       </View>
-      <Button
-        onPress={() => router.push("./cards")}
-        title="Next"
-        buttonStyle={styles.button}
-      />
+
+      {/* Content below the curve */}
+      <View style={styles.transactionsContainer}>
+        <Text style={styles.transactionHeader}>My transaction</Text>
+        <FlatList
+          data={transactions}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <View style={styles.transactionItem}>
+              <Image source={item.logo} style={styles.transactionLogo} />
+              <View style={styles.transactionDetails}>
+                <Text style={styles.transactionName}>{item.name}</Text>
+                <Text style={styles.transactionDate}>{item.date}</Text>
+              </View>
+              <Text style={styles.transactionAmount}>{item.amount}</Text>
+            </View>
+          )}
+        />
+      </View>
     </Screenwrapper>
   );
 };
 const styles = StyleSheet.create({
+  bottom: {
+    backgroundColor: "#262450",
+   
+  },
   header: {
     flexDirection: "row",
 
@@ -158,21 +144,35 @@ const styles = StyleSheet.create({
     color: theme.colors.text,
     position: "absolute",
     paddingVertical: wp(23),
-    fontSize: 13,
-    fontWeight: "regular",
+    fontSize: 16,
+    fontWeight: "300",
   },
-  transText: {
-    fontWeight: "semibold",
-    fontSize: 13,
-    color: "white",
+  topCurve: {
+    height: 250, // Adjust this height for the curve size
+    backgroundColor: '#1c1e3f',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  curveSvg: {
+    position: 'absolute',
+    top: 0,
+  },
+  transactionsContainer: {
+    flex: 1,
+    paddingHorizontal: 20,
+  },
+  transactionHeader: {
+    color: 'white',
+    fontWeight: '600',
+    fontSize: 20,
+    marginBottom: 20,
+    marginTop: -60, // Adjust to overlap the curve slightly
   },
   transactionItem: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#19173D",
-    borderRadius: 35,
-    borderWidth: 1,
-    borderColor: "#39375B",
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#2d2f59',
+    borderRadius: 20,
     padding: 15,
     marginBottom: 15,
   },
@@ -194,23 +194,9 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   transactionAmount: {
-    color: "white",
-    fontSize: 13,
-    fontWeight: "regular",
-    textAlign: "right", // Aligns the text to the right
-    width: "100%", // Ensures the text takes full width of the container
-  },
-  amountContainer: {
-    borderRadius: 35,
-    borderWidth: 1,
-    borderColor: "#39375B",
-    padding: 12,
-    width: 100, // Set a fixed width for consistency
-    alignItems: "center", // Align the amount to the end (right)
-    justifyContent: "center", // Vertically center the text
-  },
-  button: {
-    margin: 20,
+    color: '#ff4d4d',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
 

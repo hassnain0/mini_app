@@ -4,7 +4,6 @@ import { useRouter } from "expo-router";
 import { StyleSheet } from "react-native";
 import BackButton from "../components/BackButton";
 import { hp } from "../helper/common";
-import { theme } from "../constants/theme";
 const Header = ({ title, showBackButton = false, mb = 10 }) => {
   const router = useRouter();
   return (
@@ -33,8 +32,13 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: hp(2.7),
+<<<<<<< HEAD
     fontWeight: theme.fonts.bold,
     color: "white",
+=======
+    // fontWeight: theme.fonts.bold,
+    // color: theme.colors.text,
+>>>>>>> FrontEnd
   },
 });
 export default Header;
