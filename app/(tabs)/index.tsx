@@ -3,7 +3,6 @@ import React from "react";
 import { router } from "expo-router";
 import Screenwrapper from "../../components/Screenwrapper";
 import { hp, wp } from "../../helper/common";
-// Import SVG elements
 import Svg, { Path } from "react-native-svg";
 const index = () => {
   const transactions = [
@@ -29,26 +28,6 @@ const index = () => {
       logo: require("../../assets/Images/apple.png"),
     },
     {
-      id: "4",
-      name: "Starbucks",
-      date: "May 5, 2022",
-      amount: "-$15.30",
-      logo: require("../../assets/Images/starbucks.png"),
-    },
-    {
-      id: "4",
-      name: "Starbucks",
-      date: "May 5, 2022",
-      amount: "-$15.30",
-      logo: require("../../assets/Images/starbucks.png"),
-    },
-    {
-      id: "4",
-      name: "Starbucks",
-      date: "May 5, 2022",
-      amount: "-$15.30",
-      logo: require("../../assets/Images/starbucks.png"),
-    },{
       id: "4",
       name: "Starbucks",
       date: "May 5, 2022",
