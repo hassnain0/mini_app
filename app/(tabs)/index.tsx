@@ -1,32 +1,63 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image ,FlatList} from "react-native";
 import React from "react";
 import { router } from "expo-router";
 import Screenwrapper from "../../components/Screenwrapper";
 import { hp, wp } from "../../helper/common";
-  // Import SVG elements
-import { FlatList } from "react-native-gesture-handler";
+// Import SVG elements
 import Svg, { Path } from "react-native-svg";
 import { theme } from "@/constants/theme";
 const index = () => {
 
   const transactions = [
-    { id: '1', name: 'Amazon', date: 'May 24, 2022', amount: '-$103.56', logo: require('../../assets/Images/amazon.png') },
-    { id: '2', name: 'McDonalds', date: 'May 12, 2022', amount: '-$34.78', logo: require('../../assets/Images/mcdonalds.png') },
-    { id: '3', name: 'Apple', date: 'May 8, 2022', amount: '-$1,000.97', logo: require('../../assets/Images/apple.png') },
-    { id: '4', name: 'Starbucks', date: 'May 5, 2022', amount: '-$15.30', logo: require('../../assets/Images/starbucks.png') },
+    {
+      id: "1",
+      name: "Amazon",
+      date: "May 24, 2022",
+      amount: "-$103.56",
+      logo: require("../../assets/Images/amazon.png"),
+    },
+    {
+      id: "2",
+      name: "McDonalds",
+      date: "May 12, 2022",
+      amount: "-$34.78",
+      logo: require("../../assets/Images/mcdonalds.png"),
+    },
+    {
+      id: "3",
+      name: "Apple",
+      date: "May 8, 2022",
+      amount: "-$1,000.97",
+      logo: require("../../assets/Images/apple.png"),
+    },
+    {
+      id: "4",
+      name: "Starbucks",
+      date: "May 5, 2022",
+      amount: "-$15.30",
+      logo: require("../../assets/Images/starbucks.png"),
+    },
+    {
+      id: "4",
+      name: "Starbucks",
+      date: "May 5, 2022",
+      amount: "-$15.30",
+      logo: require("../../assets/Images/starbucks.png"),
+    },
+    {
+      id: "4",
+      name: "Starbucks",
+      date: "May 5, 2022",
+      amount: "-$15.30",
+      logo: require("../../assets/Images/starbucks.png"),
+    },{
+      id: "4",
+      name: "Starbucks",
+      date: "May 5, 2022",
+      amount: "-$15.30",
+      logo: require("../../assets/Images/starbucks.png"),
+    },
   ];
-
-  //   const Item=(item,index)=>{
-  //     return(
-  // <View key={index}>
-  //   <Image source={item.image}/>
-  //     <Text>{item.name}</Text>
-  //     <Text>{item.date}</Text>
-  //     <Text>{item.amount}</Text>
-
-  // </View>
-  //     )
-  // }
   return (
     <Screenwrapper bg={"#19173D"}>
       <View style={{ margin: 10 }}>

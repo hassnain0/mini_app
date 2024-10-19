@@ -4,19 +4,7 @@ import Screenwrapper from "../../components/Screenwrapper";
 import Header from "../../components/Header";
 import { wp } from "@/helper/common";
 const cards = () => {
-<<<<<<< HEAD
-  const ImagesArr=[
-    {
-    
-    },{
 
-    },{
-
-    },{
-      
-    }
-  ]
-=======
   const ImagesArr = [
     {
       image: require("../../assets/Images/Send.png"),
@@ -31,7 +19,6 @@ const cards = () => {
       image: require("../../assets/Images/Icon.png"),
     },
   ];
->>>>>>> FrontEnd
   return (
     <Screenwrapper bg={"#19173D"}>
       <Header title={"Wallet"} />
@@ -41,9 +28,7 @@ const cards = () => {
           source={require("../../assets/Images/Cards.png")}
         ></Image>
       </View>
-<<<<<<< HEAD
-      <View></View>
-=======
+
       <View>
         {ImagesArr.map((data) => (
           <View style={styles.ImageContainer}>
@@ -51,7 +36,7 @@ const cards = () => {
           </View>
         ))}
       </View>
->>>>>>> FrontEnd
+
     </Screenwrapper>
   );
 };
@@ -66,13 +51,11 @@ const styles = StyleSheet.create({
     width: 350,
     height: 240,
   },
-<<<<<<< HEAD
-=======
+
   ImageContainer: {
     width: 50,
     height: 50,
   },
->>>>>>> FrontEnd
 });
 
 export default cards;

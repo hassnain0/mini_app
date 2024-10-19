@@ -32,13 +32,9 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: hp(2.7),
-<<<<<<< HEAD
     fontWeight: theme.fonts.bold,
     color: "white",
-=======
-    // fontWeight: theme.fonts.bold,
-    // color: theme.colors.text,
->>>>>>> FrontEnd
-  },
+  }
+
 });
 export default Header;

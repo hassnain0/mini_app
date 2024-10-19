@@ -1,19 +1,14 @@
 export const theme = {
   colors: {
-<<<<<<< HEAD
-    primary: '#262450',
-=======
+
     primary: "#7557A4",
->>>>>>> FrontEnd
+    FrontEnd
     primaryDark: "#7658A6",
     dark: "#3E3E3E",
     darklight: "#E1E1E1",
     gray: "#e3e3e3",
-<<<<<<< HEAD
-    text: "gray",
-=======
+
     text: "#494949",
->>>>>>> FrontEnd
     textLight: "#7C7C7C",
     textDark: "#1D1D1D",
     rose: "#ef4444",
