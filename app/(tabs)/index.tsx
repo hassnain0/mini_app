@@ -1,11 +1,34 @@
-import { View, Text, StyleSheet, Image, FlatList } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
 import React from "react";
 import { router } from "expo-router";
 import Screenwrapper from "../../components/Screenwrapper";
 import { hp, wp } from "../../helper/common";
-// Import SVG elements
-import Svg, { Path } from "react-native-svg";
+import { PieChart } from "react-native-gifted-charts";
 const index = () => {
+  const data = [
+    {
+      key: 1,
+      value: 50, // Example slice size
+  
+    },
+    {
+      key: 2,
+      value: 25,
+    
+    },
+    {
+      key: 3,
+      value: 25,
+    },
+  ];
+
   const transactions = [
     {
       id: "1",
@@ -56,33 +79,17 @@ const index = () => {
           </View>
         </View>
         <View style={{ alignItems: "center" }}>
-          <Image
-            style={{
-              justifyContent: "center",
-              alignItems: "center",
-              width: 220, // adjust width to match the image size
-              height: 220,
-            }}
-            source={require("../../assets/Images/Balance.png")}
-          />
+          <PieChart data={data} showGradient={true} donut  gradientCenterColor="rgba(0, 0, 1, 0.5)"/>
+
           <Text style={styles.balanceText}>$5,643.50</Text>
           <Text style={styles.availContent}>Available Balance</Text>
         </View>
       </View>
       <View style={styles.topCurve}>
-        <Svg
-          height="100%"
-          width="100%"
-          viewBox="0 0 375 150"
-          style={styles.curveSvg}
-        >
-          <Path
-            fill="#262450" // Background color for the curve
-            d="M0 0 C75 100 300 100 375 0 L375 150 L0 150 Z"
-          />
-        </Svg>
         <View style={styles.transactionsContainer}>
-          <Text style={styles.transactionHeader}>My transaction</Text>
+          <TouchableOpacity onPress={() => router.push("./cards")}>
+            <Text style={styles.transactionHeader}>My transaction</Text>
+          </TouchableOpacity>
           <FlatList
             data={transactions}
             keyExtractor={(item) => item.id}
@@ -118,7 +125,11 @@ const index = () => {
     </Screenwrapper>
   );
 };
+
 const styles = StyleSheet.create({
+  Button: {
+    padding: 10,
+  },
   bottom: {
     backgroundColor: "#262450",
   },
@@ -197,7 +208,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#19173D",
     borderRadius: 50,
-    padding: 15,
+    padding: hp(1),
     marginBottom: 15,
   },
   transactionLogo: {
